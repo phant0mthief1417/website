@@ -47,7 +47,7 @@
         }
 
         li {
-            width: 5%;
+            width: 7%;
             height: 4%;
             border-radius: 20px;
             margin-right: 5%;
@@ -57,6 +57,14 @@
 
         body {
             font-family: 'Roboto', sans-serif;
+        }
+
+        .project-description {
+            color: white;
+        }
+
+        a:hover {
+            text-decoration: none;
         }
     </style>
 </head>
@@ -92,31 +100,48 @@
                     style="background:rgb(91,91,91);margin-bottom: 0;padding: 5% 0% 5% 0%;">PROJECTS</h3>
                 <div class="row justify-content-between" style="background:rgb(91,91,91);padding: 0% 0% 5% 0%;">
                     <div class="col-md-4">
-                        <div class="card" style="background:rgb(109,109,109);width:28rem;margin: auto;">
-                            <img class="card-img-top" src="{% static 'images/asteroid.png' %}"
-                                alt="Card image cap" style="padding: 15px;height:21rem;">
-                            <div class="card-body">
-                                <span class="card-text">asteroid</span>
+                        <a href="/todo" target="_blank">
+                            <div class="card" style="background:rgb(109,109,109);margin: auto;">
+                                <img class="card-img-top" src="{% static 'images/asteroid.png' %}" alt="Card image cap"
+                                    style="padding: 15px;height:21rem;">
+                                <div class="card-body project-description">
+                                    <span class="card-text">
+                                        <h3>Asteroid</h3>
+                                        <p>A space situated game where players shoot the asteroid coming towards them to
+                                            survive.</p>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="background:rgb(109,109,109);width:28rem;margin: auto;">
-                            <img class="card-img-top" src="{% static 'images/fireworks.png' %}" alt="Card image cap"
-                                style="padding: 15px;height:21rem;">
-                            <div class="card-body">
-                                <span class="card-text">fireworks</span>
+                        <a href="/todo" target="_blank">
+                            <div class="card" style="background:rgb(109,109,109);margin: auto;">
+                                <img class="card-img-top" src="{% static 'images/fireworks.png' %}" alt="Card image cap"
+                                    style="padding: 15px;height:21rem;">
+                                <div class="card-body project-description">
+                                    <span class="card-text">
+                                        <h3>Fireworks</h3>
+                                        <p>A display of fireworks created using OOP in the HTML5 canvas.</p>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                     <div class="col-md-4" style="margin:0px 50px opx 50px;">
-                        <div class="card" style="background:rgb(109,109,109);width:28rem;margin: auto;">
-                            <img class="card-img-top" src="{% static 'images/maze.png' %}" alt="Card image cap"
-                                style="padding: 15px;height:21rem;">
-                            <div class="card-body">
-                                <span class="card-text">maze</span>
+                        <a href="/todo" target="_blank">
+                            <div class="card" style="background:rgb(109,109,109);margin: auto;">
+                                <img class="card-img-top" src="{% static 'images/maze.png' %}" alt="Card image cap"
+                                    style="padding: 15px;height:21rem;">
+                                <div class="card-body project-description">
+                                    <span class="card-text">
+                                        <h3>A-maze</h3>
+                                        <p>A random maze which generated in front of your eyes and the goal is to reach
+                                            the end.</p>
+                                    </span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
         </section>
