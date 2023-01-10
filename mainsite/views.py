@@ -95,4 +95,4 @@ def Home_page(response):
 
 
 def Asteroid_page(response):
-    return render(response, "Asteroids/index.html")
+    return render(response, "asteroids.html")

@@ -43,7 +43,7 @@
         .introduction {
             height: 100vh;
             overflow: auto;
-            background-color: rgb(73, 73, 73);
+            background-color: rgb(233, 213, 161);
         }
 
         li {
@@ -59,10 +59,6 @@
             font-family: 'Roboto', sans-serif;
         }
 
-        .project-description {
-            color: white;
-        }
-
         a:hover {
             text-decoration: none;
         }
@@ -70,16 +66,43 @@
 </head>
 
 <body>
-    <div class="container-fluid" style="color: white;">
-        <div class="introduction row d-flex justify-content-center" style="padding-left: auto;">
-            <h2 style="align-self:center;">Aakash Durairaj</h2>
-            <!-- <div class="row">
-                
-            </div> -->
+    <div class="introduction">
+        <div style="margin-left: 50%;margin-top: 50vh;transform: translate(-50%, -50%); text-align: center;">
+            <svg width="15%" viewBox="0 0 32 32" fill="none"
+                style="stroke:#000000;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;">
+                <g>
+                    <path d="M30,28H2c-0.3,0-0.7-0.2-0.9-0.5c-0.2-0.3-0.2-0.7,0-1l2-3C3.3,23.2,3.6,23,4,23h24c0.4,0,0.7,0.2,0.9,0.6l2,3
+		c0.2,0.3,0.1,0.7,0,1C30.7,27.8,30.3,28,30,28z" />
+                </g>
+                <path d="M27,5H5C4.4,5,4,5.4,4,6v14c0,0.6,0.4,1,1,1h22c0.6,0,1-0.4,1-1V6C28,5.4,27.6,5,27,5z M11.7,15.3c0.4,0.4,0.4,1,0,1.4
+	C11.5,16.9,11.3,17,11,17s-0.5-0.1-0.7-0.3l-3-3c-0.4-0.4-0.4-1,0-1.4l3-3c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4L9.4,13L11.7,15.3z
+	 M18.9,9.4l-4,8C14.7,17.8,14.4,18,14,18c-0.2,0-0.3,0-0.4-0.1c-0.5-0.2-0.7-0.8-0.4-1.3l4-8c0.2-0.5,0.8-0.7,1.3-0.4
+	C18.9,8.4,19.1,9,18.9,9.4z M24.7,13.7l-3,3C21.5,16.9,21.3,17,21,17s-0.5-0.1-0.7-0.3c-0.4-0.4-0.4-1,0-1.4l2.3-2.3l-2.3-2.3
+	c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l3,3C25.1,12.7,25.1,13.3,24.7,13.7z" />
+            </svg>
+            <h1 style="font-weight: bolder;">Aakash Durairaj</h1>
+            <p style="font-size: 28px;" id="typing-style">S</p>
+            <a href="https://github.com/phant0mthief1417" target="_blank">
+                <svg width="48px" height="48px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="black" fill-rule="evenodd"
+                        d="M8 1C4.133 1 1 4.13 1 7.993c0 3.09 2.006 5.71 4.787 6.635.35.064.478-.152.478-.337 0-.166-.006-.606-.01-1.19-1.947.423-2.357-.937-2.357-.937-.319-.808-.778-1.023-.778-1.023-.635-.434.048-.425.048-.425.703.05 1.073.72 1.073.72.624 1.07 1.638.76 2.037.582.063-.452.244-.76.444-.935-1.554-.176-3.188-.776-3.188-3.456 0-.763.273-1.388.72-1.876-.072-.177-.312-.888.07-1.85 0 0 .586-.189 1.924.716A6.711 6.711 0 018 4.381c.595.003 1.194.08 1.753.236 1.336-.905 1.923-.717 1.923-.717.382.963.142 1.674.07 1.85.448.49.72 1.114.72 1.877 0 2.686-1.638 3.278-3.197 3.45.251.216.475.643.475 1.296 0 .934-.009 1.688-.009 1.918 0 .187.127.404.482.336A6.996 6.996 0 0015 7.993 6.997 6.997 0 008 1z"
+                        clip-rule="evenodd" />
+                </svg>
+            </a>
+            <a target="_blank">
+                <svg fill="black" width="48px" height="48px" viewBox="0 0 32 32" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M28.778 1.004h-25.56c-0.008-0-0.017-0-0.027-0-1.199 0-2.172 0.964-2.186 2.159v25.672c0.014 1.196 0.987 2.161 2.186 2.161 0.010 0 0.019-0 0.029-0h25.555c0.008 0 0.018 0 0.028 0 1.2 0 2.175-0.963 2.194-2.159l0-0.002v-25.67c-0.019-1.197-0.994-2.161-2.195-2.161-0.010 0-0.019 0-0.029 0h0.001zM9.9 26.562h-4.454v-14.311h4.454zM7.674 10.293c-1.425 0-2.579-1.155-2.579-2.579s1.155-2.579 2.579-2.579c1.424 0 2.579 1.154 2.579 2.578v0c0 0.001 0 0.002 0 0.004 0 1.423-1.154 2.577-2.577 2.577-0.001 0-0.002 0-0.003 0h0zM26.556 26.562h-4.441v-6.959c0-1.66-0.034-3.795-2.314-3.795-2.316 0-2.669 1.806-2.669 3.673v7.082h-4.441v-14.311h4.266v1.951h0.058c0.828-1.395 2.326-2.315 4.039-2.315 0.061 0 0.121 0.001 0.181 0.003l-0.009-0c4.5 0 5.332 2.962 5.332 6.817v7.855z">
+                    </path>
+                </svg>
+            </a>
         </div>
-        <div style="background:#7f7f7f;padding: 5% 0% 5% 0%;" class="row">
+    </div>
+    <div class="container-fluid">
+        <div style="background:white;padding: 5% 0% 5% 0%;" class="row">
             <h3 class="row d-flex justify-content-center"
-                style="background:#7f7f7f;margin-bottom: 0;padding: 0% 0% 5% 47.5%;">ABOUT ME</h3>
+                style="background:white;margin-bottom: 0;padding: 0% 0% 5% 47.5%;">ABOUT ME</h3>
             <div class="row card text-white justify-content-between"
                 style="max-width: 80%;margin: auto;background:rgb(109,109,109)">
                 <div class="card-header">Hi :)</div>
@@ -97,11 +120,11 @@
         <section>
             <div class="projects " style="margin: auto;">
                 <h3 class="row d-flex justify-content-center"
-                    style="background:rgb(91,91,91);margin-bottom: 0;padding: 5% 0% 5% 0%;">PROJECTS</h3>
-                <div class="row justify-content-between" style="background:rgb(91,91,91);padding: 0% 0% 5% 0%;">
+                    style="background:rgb(239,225,189);margin-bottom: 0;padding: 5% 0% 5% 0%;">PROJECTS</h3>
+                <div class="row justify-content-between" style="background:rgb(239,225,189);padding: 0% 0% 5% 0%;">
                     <div class="col-md-4">
                         <a href="/todo" target="_blank">
-                            <div class="card" style="background:rgb(109,109,109);margin: auto;">
+                            <div class="card" style="background:white;margin: auto;">
                                 <img class="card-img-top" src="{% static 'images/asteroid.png' %}" alt="Card image cap"
                                     style="padding: 15px;height:21rem;">
                                 <div class="card-body project-description">
@@ -116,7 +139,7 @@
                     </div>
                     <div class="col-md-4">
                         <a href="/todo" target="_blank">
-                            <div class="card" style="background:rgb(109,109,109);margin: auto;">
+                            <div class="card" style="background:white;margin: auto;">
                                 <img class="card-img-top" src="{% static 'images/fireworks.png' %}" alt="Card image cap"
                                     style="padding: 15px;height:21rem;">
                                 <div class="card-body project-description">
@@ -128,9 +151,9 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4" style="margin:0px 50px opx 50px;">
+                    <div class="col-md-4">
                         <a href="/todo" target="_blank">
-                            <div class="card" style="background:rgb(109,109,109);margin: auto;">
+                            <div class="card" style="background:white;margin: auto;">
                                 <img class="card-img-top" src="{% static 'images/maze.png' %}" alt="Card image cap"
                                     style="padding: 15px;height:21rem;">
                                 <div class="card-body project-description">
@@ -146,7 +169,7 @@
                 </div>
         </section>
         <section>
-            <div class="row skills" style="background-color:#1f1f1f;font-size: 15px;padding-bottom:5%;">
+            <div class="row skills" style="background-color:#1f1f1f;font-size: 15px;padding-bottom:5%;color: white;">
                 <div class="col text-center">
                     <h3 class="row d-flex justify-content-center" style="margin-bottom: 0;padding: 5% 0% 5% 0%;">SKILLS
                     </h3>
@@ -213,6 +236,36 @@
             </div>
         </section>
     </div>
+
+    <script>
+        let text = "Software Engineer";
+        let txt_ref = document.getElementById("typing-style");
+        let i = 0;
+        let inactive = setInterval(add, 100);
+        function add() {
+            // clearInterval(subtract);
+            if (i <= text.length) {
+                document.getElementById("typing-style").innerHTML = text.slice(0, i);
+                i++;
+            } else {
+                clearInterval(inactive);
+                setTimeout(() => {
+                    inactive = setInterval(subtract, 100);
+                }, 200)
+            }
+
+        }
+
+        function subtract() {
+            if (i > 1) {
+                document.getElementById("typing-style").innerHTML = text.slice(0, i);
+                i--;
+            } else {
+                clearInterval(inactive);
+                inactive = setInterval(add, 100);
+            }
+        }
+    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

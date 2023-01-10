@@ -12,5 +12,5 @@ urlpatterns = [
     path('todo/update/<int:pk>/', TaskUpdate.as_view(), name="update"),
     path('todo/delete/<int:pk>/', TaskDelete.as_view(), name="delete"),
     path('home/', Home_page, name="Home_page"),
-    # path('asteroid/', Asteroid_page, name="Asteroid_page"),
+    path('asteroid/', Asteroid_page, name="Asteroid_page"),
 ]

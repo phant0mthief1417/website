@@ -1,0 +1,272 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'files/styles.css' %}">
+    <title>Title</title>
+</head>
+
+<body>
+    <canvas id="mycanvas"></canvas>
+    <script src="{% static 'files/Library.js' %}"></script>
+    <script src="{% static 'files/math.js' %}"></script>
+    <script>
+        initGraphics(800, 600);
+
+        let player = new Ship(cnv.width / 2, cnv.height / 2);
+        // let ship = new Ship(cnv.width / 2, cnv.height / 2);
+        const FRICTION = 0.03;
+        const SHIP_THRUST = 0.15;
+        const BULLET_SPEED = 12;
+        const SHIP_SPEED_LIMIT = 10;
+        const TURN_SPEED = 6;
+        const ASTEROID_COUNT = 5;
+        let firing = 0;
+        let spaceDebris = [];
+
+        for (let i = 0; i < ASTEROID_COUNT; i++) {
+            spaceDebris.push(new Asteroid());
+        }
+
+        requestAnimationFrame(draw);
+        function draw() {
+            ctx.clearRect(0, 0, cnv.width, cnv.height);
+            ctx.fillStyle = "black";
+            ctx.fillRect(0, 0, cnv.width, cnv.height);
+            player.draw();
+            player.update();
+            player.edges();
+            for (let i = 0; i < spaceDebris.length; i++) {
+                spaceDebris[i].show();
+                spaceDebris[i].update();
+                spaceDebris[i].edges();
+                if (player.hits(spaceDebris[i]) && player.position.x + player.r < cnv.width && player.position.x - player.r > 0 && player.position.y + player.r < cnv.height && player.position.y - player.r > 0) {
+                    ctx.fillStyle = "white";
+                    ctx.font = "48px Arial"
+                    ctx.fillText("Game Over!", cnv.width / 2 - 48 * 2, cnv.height / 2);
+                    return;
+                }
+            }
+            for (let i = player.bullets.length - 1; i >= 0; i--) {
+                player.bullets[i].show();
+                player.bullets[i].update();
+                if (player.bullets[i].position.x > cnv.width || player.bullets[i].position.x < 0 || player.bullets[i].position.y > cnv.height || player.bullets[i].position.y < 0) {
+                    player.bullets.splice(i, 1);
+                    break;
+                } else {
+                    for (let j = spaceDebris.length - 1; j >= 0; j--) {
+                        if (player.bullets[i].hits(spaceDebris[j])) {
+                            player.bullets.splice(i, 1);
+                            if (spaceDebris[j].r > 20) {
+                                let car = spaceDebris[j].breakUp();
+                                spaceDebris = spaceDebris.concat(car);
+                            }
+                            spaceDebris.splice(j, 1);
+                            break;
+                        }
+                    }
+                }
+            }
+            requestAnimationFrame(draw);
+        };
+
+        document.addEventListener("keydown", keyDown);
+        document.addEventListener("keyup", keyUp);
+
+        function keyDown(event) {
+            if (event.code == "Space") {
+                player.bullets.push(
+                    new Bullet(
+                        player.position.x + 4 / 3 * player.r * Math.cos(player.a),
+                        player.position.y - 4 / 3 * player.r * Math.sin(player.a),
+                        player.a
+                    )
+                );
+            };
+            if (event.code == "ArrowLeft") {
+                player.rot = TURN_SPEED / 180 * Math.PI;
+            } else if (event.code == "ArrowRight") {
+                player.rot = -TURN_SPEED / 180 * Math.PI;
+            }
+            if (event.code == "ArrowUp") {
+                player.thrusting = true;
+            }
+        }
+
+        function keyUp(event) {
+            if (event.code == "ArrowLeft") {
+                player.rot = 0;
+            } else if (event.code == "ArrowRight") {
+                player.rot = 0;
+            }
+            if (event.code == "ArrowUp") {
+                player.thrusting = false;
+            }
+        };
+
+        //ASTEROID
+        function Asteroid(pos, r) {
+            if (!pos) {
+                do {
+                    this.position = makeVector(Math.randomDec(0, cnv.width), Math.randomDec(0, cnv.height));
+                } while (ctx.distance(this.position.x, this.position.y, player.x, player.y) < cnv.width / 4);
+            } else {
+                this.position = { ...pos };
+            }
+            if (r) {
+                this.r = r / 2;
+            } else {
+                this.r = Math.randomInt(25, 50);
+            }
+            do {
+                this.velocity = makeVector(Math.randomDec(-5, 5), Math.randomDec(-5, 5));
+            } while (this.velocity.x == 0 || this.velocity.y == 0);
+            this.numVert = Math.randomInt(6, 13);
+            this.angle = Math.random() * Math.PI * 2;
+            this.shiftPosition = [];
+            for (let i = 0; i < this.numVert; i++) {
+                this.shiftPosition.push(Math.random() * 0.4 * 2 + 1 - 0.4);
+            }
+
+            this.update = function () {
+                this.position.x += this.velocity.x;
+                this.position.y += this.velocity.y;
+            }
+
+            this.show = function () {
+                // ctx.strokeCircle(this.position.x, this.position.y, this.r);
+                ctx.strokeStyle = "white";
+                ctx.beginPath();
+                ctx.moveTo(
+                    this.position.x + this.r * this.shiftPosition[0] * Math.cos(this.angle),
+                    this.position.y + this.r * this.shiftPosition[0] * Math.sin(this.angle)
+                );
+                for (let i = 1; i < this.numVert; i++) {
+                    ctx.lineTo(
+                        this.position.x + this.r * this.shiftPosition[i] * Math.cos(this.angle + i * Math.PI * 2 / this.numVert),
+                        this.position.y + this.r * this.shiftPosition[i] * Math.sin(this.angle + i * Math.PI * 2 / this.numVert)
+                    );
+                }
+                ctx.closePath();
+                ctx.stroke();
+            }
+        };
+        Asteroid.prototype.edges = function () {
+            if (this.position.x < 0 - this.r) {
+                this.position.x = cnv.width + this.r;
+                this.updateVelocity();
+            } else if (this.position.x > cnv.width + this.r) {
+                this.position.x = 0 - this.r;
+                this.updateVelocity();
+            }
+            if (this.position.y < 0 - this.r) {
+                this.position.y = cnv.height + this.r;
+                this.updateVelocity();
+            } else if (this.position.y > cnv.height + this.r) {
+                this.position.y = 0 - this.r;
+                this.updateVelocity();
+            }
+        };
+
+        Asteroid.prototype.updateVelocity = function () {
+            do {
+                this.velocity = makeVector(Math.randomDec(-5, 5), Math.randomDec(-5, 5));
+            } while (this.velocity.x == 0 || this.velocity.y == 0);
+        };
+
+        Asteroid.prototype.breakUp = function () {
+            let newast = [];
+            newast.push(new Asteroid(this.position, this.r));
+            newast.push(new Asteroid(this.position, this.r));
+            return newast;
+        }
+
+
+        //SPACESHIP
+        function Ship(x, y) {
+            this.position = makeVector(x, y);
+            this.r = 20;
+            this.a = 90 / 180 * Math.PI;
+            this.rot = 0;
+            this.thrusting = false;
+            this.bullets = [];
+            this.thrust = {
+                x: 0,
+                y: 0
+            };
+
+            this.update = function () {
+                // rotate the ship
+                this.a += this.rot;
+                // move the ship
+                this.position.x += this.thrust.x;
+                this.position.y += this.thrust.y;
+                if (this.thrusting && Math.abs(this.thrust.x) < SHIP_SPEED_LIMIT && Math.abs(this.thrust.y) < SHIP_SPEED_LIMIT) {
+                    this.thrust.x += SHIP_THRUST * Math.cos(this.a);
+                    this.thrust.y -= SHIP_THRUST * Math.sin(this.a);
+                } else {
+                    this.thrust.x -= FRICTION * this.thrust.x;
+                    this.thrust.y -= FRICTION * this.thrust.y;
+                }
+            }
+            this.draw = function () {
+                ctx.strokeStyle = "white";
+                ctx.lineWidth = 2;
+                ctx.strokeTriangle(
+                    this.position.x + 4 / 3 * this.r * Math.cos(this.a),
+                    this.position.y - 4 / 3 * this.r * Math.sin(this.a),
+                    this.position.x - this.r * (2 / 3 * Math.cos(this.a) + Math.sin(this.a)),
+                    this.position.y + this.r * (2 / 3 * Math.sin(this.a) - Math.cos(this.a)),
+                    this.position.x - this.r * (2 / 3 * Math.cos(this.a) - Math.sin(this.a)),
+                    this.position.y + this.r * (2 / 3 * Math.sin(this.a) + Math.cos(this.a)),
+                );
+                ctx.strokeCircle(this.position.x + 4 / 3 * this.r * Math.cos(this.a), this.position.y - 4 / 3 * this.r * Math.sin(this.a), 5);
+            }
+        }
+
+        Ship.prototype.edges = function () {
+            if (this.position.x < 0 - this.r) {
+                this.position.x = cnv.width + this.r;
+            } else if (this.position.x > cnv.width + this.r) {
+                this.position.x = 0 - this.r;
+            }
+            if (this.position.y < 0 - this.r) {
+                this.position.y = cnv.height + this.r;
+            } else if (this.position.y > cnv.height + this.r) {
+                this.position.y = 0 - this.r;
+            }
+        }
+
+        Ship.prototype.hits = function (roid) {
+            let dist = ctx.distance(this.position.x, this.position.y, roid.position.x, roid.position.y);
+            return (dist < this.r + roid.r);
+        }
+
+        //BULLET
+        function Bullet(posX, posY, angle) {
+            this.position = makeVector(posX, posY);
+            this.velocity = makeVector(BULLET_SPEED * Math.cos(angle), BULLET_SPEED * Math.sin(angle));
+            this.r = 3;
+
+            this.update = function () {
+                this.position.x += this.velocity.x;
+                this.position.y -= this.velocity.y;
+            }
+
+            this.show = function () {
+                ctx.fillStyle = "white";
+                ctx.fillCircleXYR(this.position.x, this.position.y, this.r);
+            }
+        }
+
+        Bullet.prototype.hits = function (roid) {
+            let dist = ctx.distance(this.position.x, this.position.y, roid.position.x, roid.position.y);
+            return (dist < this.r + roid.r);
+        }
+    </script>
+</body>
+
+</html>
