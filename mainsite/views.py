@@ -96,3 +96,18 @@ def Home_page(response):
 
 def Asteroid_page(response):
     return render(response, "asteroids.html")
+
+
+def Maze_page(response):
+    return render(response, "maze.html")
+
+
+def Fireworks_page(response):
+    return render(response, "fireworks.html")
+
+
+def Salesman_page(response):
+    return render(response, "salesman.html")
+
+def Mine_page(response):
+    return render(response, "minesweeper.html")

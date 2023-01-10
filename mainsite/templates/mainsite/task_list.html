@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="header-bar">
-    <div class="greeting">
+    <div class="greeting" style="margin-left:auto;margin-right:auto; text-align: center;">
         <h1>Hello {{ request.user|title }}</h1>
         <h3 class="incomplete-tasks">You have <i>{{ count }} incomplete task{{ count|pluralize:'s' }}</i></h3>
     </div>
@@ -21,7 +21,7 @@
     <b><a id="add-link" href="{% url 'create' %}">&#x2b;</a></b>
 </div>
 
-<div class="card-body">
+<div class="card-body" style="text-align: center;">
     <div class="task-items-wrapper">
         {% for tasks in task %}
         <div class="task-wrapper">

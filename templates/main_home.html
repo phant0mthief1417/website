@@ -62,6 +62,10 @@
         a:hover {
             text-decoration: none;
         }
+
+        .project-description {
+            color: black;
+        }
     </style>
 </head>
 
@@ -107,7 +111,6 @@
                 style="max-width: 80%;margin: auto;background:rgb(109,109,109)">
                 <div class="card-header">Hi :)</div>
                 <div class="card-body">
-                    <!-- <h5 class="card-title"></h5> -->
                     <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti molestias
                         repellendus maiores voluptas, deserunt labore blanditiis officiis provident! Facere enim
                         praesentium
@@ -121,9 +124,9 @@
             <div class="projects " style="margin: auto;">
                 <h3 class="row d-flex justify-content-center"
                     style="background:rgb(239,225,189);margin-bottom: 0;padding: 5% 0% 5% 0%;">PROJECTS</h3>
-                <div class="row justify-content-between" style="background:rgb(239,225,189);padding: 0% 0% 5% 0%;">
-                    <div class="col-md-4">
-                        <a href="/todo" target="_blank">
+                <div class="row justify-content-between" style="background:rgb(239,225,189);padding: 0% 0% 10% 0%;">
+                    <div class="col-md-3">
+                        <a href="/asteroid" target="_blank">
                             <div class="card" style="background:white;margin: auto;">
                                 <img class="card-img-top" src="{% static 'images/asteroid.png' %}" alt="Card image cap"
                                     style="padding: 15px;height:21rem;">
@@ -137,22 +140,22 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
-                        <a href="/todo" target="_blank">
+                    <div class="col-md-3">
+                        <a href="/fireworks" target="_blank">
                             <div class="card" style="background:white;margin: auto;">
                                 <img class="card-img-top" src="{% static 'images/fireworks.png' %}" alt="Card image cap"
                                     style="padding: 15px;height:21rem;">
                                 <div class="card-body project-description">
                                     <span class="card-text">
                                         <h3>Fireworks</h3>
-                                        <p>A display of fireworks created using OOP in the HTML5 canvas.</p>
+                                        <p>A satisfying display of fireworks created using OOP in the HTML5 canvas.</p>
                                     </span>
                                 </div>
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-4">
-                        <a href="/todo" target="_blank">
+                    <div class="col-md-3">
+                        <a href="/maze" target="_blank">
                             <div class="card" style="background:white;margin: auto;">
                                 <img class="card-img-top" src="{% static 'images/maze.png' %}" alt="Card image cap"
                                     style="padding: 15px;height:21rem;">
@@ -167,6 +170,39 @@
                         </a>
                     </div>
                 </div>
+                <div class="row justify-content-between" style="background:rgb(239,225,189);padding: 0% 0% 10% 0%;">
+                    <div class="col-sm-3" style="margin-left:20%;">
+                        <a href="/salesman" target="_blank">
+                            <div class="card" style="background:white;margin: auto;">
+                                <img class="card-img-top" src="{% static 'images/salesman.png' %}" alt="Card image cap"
+                                    style="padding: 15px;height:21rem;">
+                                <div class="card-body project-description">
+                                    <span class="card-text">
+                                        <h3>Travelling Salesman</h3>
+                                        <p>Tackling the travelling salesman problem with a visaullu pleasing display of
+                                            the prossibility explored.</p>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-sm-3" style="margin-right:20%;">
+                        <a href="/todo" target="_blank">
+                            <div class="card" style="background:white;margin: auto;">
+                                <img class="card-img-top" src="{% static 'images/todolist.png' %}" alt="Card image cap"
+                                    style="padding: 15px;height:21rem;">
+                                <div class="card-body project-description">
+                                    <span class="card-text">
+                                        <h3>ToDo-List</h3>
+                                        <p>A objective tracker program built with user authentication and search flter.
+                                        </p>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </section>
         <section>
             <div class="row skills" style="background-color:#1f1f1f;font-size: 15px;padding-bottom:5%;color: white;">
