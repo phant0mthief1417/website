@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Todo List app with django built by destiny franks a full stack web developer">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+</head>
+<style>
+    body {
+        background: rgb(242, 242, 242);
+        font-family: 'Arial', sans-serif;
+        padding-top: 0px;
+
+    }
+
+    .container {
+        width: 100%;
+        background-color: #fff;
+        border-bottom: 1px solid black;
+        justify-content: center;
+        border-radius: 20px;
+        box-shadow: 10px 10px;
+    }
+
+    .header-bar {
+        display: flex;
+        border: 1px solid black;
+        justify-content: right;
+        color: black;
+        padding: 10px;
+        border-radius: 20px 20px 0 0;
+        background: rgb(255, 217, 217);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Raleway', sans-serif;
+    }
+
+    .task-wrapper {
+        display: flex;
+        max-width: 50%;
+        margin: auto;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #fff;
+        border-top: 1px solid #dfe4ea;
+        overflow: hidden;
+    }
+
+    .task-title {
+        display: flex;
+        padding: 20px;
+    }
+
+    .task-title a {
+        text-decoration: none;
+        color: #4b5156;
+        margin-left: 10px;
+    }
+
+    .task-complete-icon {
+        height: 20px;
+        width: 20px;
+        background-color: rgba(0, 255, 0, 0.4);
+        border-radius: 50%;
+    }
+
+    .task-incomplete-icon {
+        height: 20px;
+        width: 20px;
+        background-color: rgb(160, 160, 160);
+        border-radius: 50%;
+    }
+
+    .delete-link {
+        text-decoration: none;
+        font-weight: 900;
+        color: #6249cf;
+        font-size: 22px;
+        line-height: 0;
+        padding: 20px 20px;
+    }
+
+    .header-bar b {
+        color: rgb(247, 247, 247);
+        text-decoration: none;
+        font-size: 20px;
+        color: black;
+    }
+
+    #search-add-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+
+    input[type=text],
+    input[type=password],
+    textarea {
+        border: 1px solid #757575;
+        border-radius: 5px;
+        padding: 10px;
+        width: 50%;
+    }
+
+    label {
+        padding-top: 10px !important;
+        display: block;
+    }
+
+    ::placeholder {
+        font-weight: 300;
+        opacity: 0.5;
+    }
+
+    .button {
+        border: 1px solid #757575;
+        background-color: rgb(255, 217, 217);
+        color: black;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    #add-link {
+        color: black;
+        text-decoration: none;
+        font-size: 42px;
+    }
+
+    .card-body {
+        padding: 20px;
+    }
+</style>
+
+<body>
+    <div class="container" style="width:75%;margin-left:auto;margin-right:auto;">
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+</body>
+
+</html>
