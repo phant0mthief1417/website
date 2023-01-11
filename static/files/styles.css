@@ -1,7 +1,13 @@
 canvas {
     border: 1px solid black;
+    
 }
 
 img {
     display: none;
+}
+
+body {
+    background-color: rgb(239, 225, 189);
+    text-align: center;
 }
