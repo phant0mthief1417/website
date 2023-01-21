@@ -7,10 +7,11 @@
         <h3 class="incomplete-tasks">You have <i>{{ count }} incomplete task{{ count|pluralize:'s' }}</i></h3>
     </div>
     {% if request.user.is_authenticated %}
-    <b><a href="{% url 'logout' %}">Logout</a></b>
+    <b><a href=" {% url 'logout' %}">Logout</a></b>
     {% else %}
     <b><a href="{% url 'login' %}">Login</a></b>
     {% endif %}
+
 </div>
 
 <div id="search-add-wrapper">
@@ -30,7 +31,7 @@
                 <div class="task-complete-icon"></div>
                 <i><s><a href="{% url 'update' tasks.id%}">{{ tasks }}</a></s></i>
             </div>
-            <div>Created: {{tasks.created}}</div>
+            <div><b>Created</b>: {{tasks.created}}</div>
             <p>{{tasks.due_date}}</p>
             <a class="delete-link" href="{% url 'delete' tasks.id %}">&#215;</a>
             {% else %}
@@ -38,7 +39,7 @@
                 <div class="task-incomplete-icon"></div>
                 <a href="{% url 'update' tasks.id%}">{{ tasks }}</a>
             </div>
-            <div>Created: {{tasks.created}}</div>
+            <div><b>Created</b>: {{tasks.created}}</div>
             <p>{{tasks.due_date}}</p>
             <a class="delete-link" href="{% url 'delete' tasks.id %}">&#215;</a>
             {% endif %}
