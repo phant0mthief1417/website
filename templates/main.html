@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,13 +6,14 @@
     <meta charset="UTF-8">
     <meta name="description" content="Todo List app with django built by destiny franks a full stack web developer">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="{% static 'images/site_icon.jpg' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo List</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 <style>
     body {
-        background: rgb(242, 242, 242);
+        background: rgb(239,225,189);
         font-family: 'Arial', sans-serif;
         padding-top: 0px;
 
@@ -141,6 +143,9 @@
 
     .card-body {
         padding: 20px;
+    }
+    .card-body input:not(.button){
+        width: 100%;
     }
 </style>
 

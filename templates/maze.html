@@ -5,8 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'images/site_icon.jpg' %}">
     <link rel="stylesheet" href="{% static 'files/styles.css' %}">
-    <title>Title</title>
+    <title>Maze</title>
 </head>
 
 <body>
@@ -125,7 +126,7 @@
                     ctx.fillRect(x, y, dimension, dimension);
                 }
                 if (this.playershow) {
-                    ctx.fillStyle = "green";
+                    ctx.fillStyle = "white";
                     ctx.fillRect(x + 5, y + 5, dimension - 10, dimension - 10);
                 }
             }
