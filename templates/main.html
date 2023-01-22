@@ -13,10 +13,34 @@
 </head>
 <style>
     body {
-        background: rgb(239,225,189);
+        background: rgb(239, 225, 189);
         font-family: 'Arial', sans-serif;
         padding-top: 0px;
+    }
 
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 75%;
+        margin: auto;
+        align-items: center;
+        justify-content: space-evenly;
+        background-color: #fff;
+        border-top: 1px solid #dfe4ea;
+        overflow: hidden;
+        border: none;
+    }
+
+    td,
+    th {
+        border: 1px solid black;
+        text-align: left;
+        text-align: center;
+    }
+
+    td a{
+        text-decoration: none;
+        color: #4b5156;
     }
 
     .container {
@@ -64,12 +88,13 @@
     }
 
     .task-title a {
-        text-decoration: none;
         color: #4b5156;
         margin-left: 10px;
     }
 
     .task-complete-icon {
+        margin-left: auto;
+        margin-right: auto;
         height: 20px;
         width: 20px;
         background-color: rgba(0, 255, 0, 0.4);
@@ -77,6 +102,8 @@
     }
 
     .task-incomplete-icon {
+        margin-left: auto;
+        margin-right: auto;
         height: 20px;
         width: 20px;
         background-color: rgb(160, 160, 160);
@@ -144,7 +171,8 @@
     .card-body {
         padding: 20px;
     }
-    .card-body input:not(.button){
+
+    .card-body input:not(.button, ) {
         width: 100%;
     }
 </style>
