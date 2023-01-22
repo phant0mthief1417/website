@@ -6,7 +6,7 @@
     <a href="{% url 'task' %}">&#8592; Back</a>
 </div>
 
-<div class="card-body">
+<div class="card-body" style="margin-left: 25%;margin-right: 0%; width: 100%;">
     <form action="" method="post">
         {% csrf_token %}
         {{ form.as_p }}

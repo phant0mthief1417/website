@@ -24,30 +24,43 @@
 
 <div class="card-body" style="text-align: center;">
     <div class="task-items-wrapper">
-        {% for tasks in task %}
-        <div class="task-wrapper">
-            {% if tasks.complete %}
-            <div class="task-title">
-                <div class="task-complete-icon"></div>
-                <i><s><a href="{% url 'update' tasks.id%}">{{ tasks }}</a></s></i>
-            </div>
-            <div><b>Created</b>: {{tasks.created}}</div>
-            <p>{{tasks.due_date}}</p>
-            <a class="delete-link" href="{% url 'delete' tasks.id %}">&#215;</a>
-            {% else %}
-            <div class="task-title">
-                <div class="task-incomplete-icon"></div>
-                <a href="{% url 'update' tasks.id%}">{{ tasks }}</a>
-            </div>
-            <div><b>Created</b>: {{tasks.created}}</div>
-            <p>{{tasks.due_date}}</p>
-            <a class="delete-link" href="{% url 'delete' tasks.id %}">&#215;</a>
-            {% endif %}
-        </div>
-        {% empty %}
-        <h3>No items in list</h3>
-        <a href="{% url 'create' %}">Add New Item</a>
-        {% endfor %}
+        <table>
+            {% for tasks in task %}
+            {% if forloop.first %}
+            <tr>
+                <th>Status</th>
+                <th>Title</th>
+                <th>Created</th>
+                <th>Due</th>
+                <th>Delete</th>
+            </tr>
+            {%endif%}
+            <tr>
+                <td>
+                    {% if tasks.complete %}
+                    <div class="task-complete-icon"></div>
+                    {% else %}
+                    <div class="task-incomplete-icon"></div>
+                    {% endif %}
+                </td>
+                {% if tasks.complete %}
+                <td><i><s><a href="{% url 'update' tasks.id%}">{{ tasks }}</a></s></i></td>
+                {% else %}
+                <td><i><a href="{% url 'update' tasks.id%}">{{ tasks }}</a></i></td>
+                {% endif %}
+                <td>
+                    <div>{{tasks.created}}</div>
+                </td>
+                <td>
+                    <p>{{tasks.due_date}}</p>
+                </td>
+                <td><a class="delete-link" href="{% url 'delete' tasks.id %}">&#215;</a></td>
+            </tr>
+            {% empty %}
+            <h3>No items in list</h3>
+            <a href="{% url 'create' %}">Add New Item</a>
+            {% endfor %}
+        </table>
     </div>
 </div>
 {% endblock content %}
