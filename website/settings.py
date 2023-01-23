@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ueeeg_n#f@it3n^macis_*le5c)3)%m)(2^myku&)(6&*y5ay+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['phant0mthief.pythonanywhere.com']
 
 
 # Application definition
@@ -152,3 +152,7 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = 'login'
+
+#only for pythonanywhere.com
+#STATIC_ROOT = '/home/phant0mthief/static'
+
