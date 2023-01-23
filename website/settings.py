@@ -154,5 +154,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'login'
 
 #only for pythonanywhere.com
-#STATIC_ROOT = '/home/phant0mthief/static'
-
+#STATIC_ROOT = '/home/username/projects/site/assets/'
